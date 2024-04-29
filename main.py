@@ -65,24 +65,6 @@ class aclient(discord.Client):
 client = aclient()
 tree = app_commands.CommandTree(client)
 
-# discord intents
-intents = discord.Intents.all()
-bot = commands.Bot(command_prefix="??", intents=intents)
-
-
-# when the bot is fully loaded
-@bot.event
-async def on_ready():
-    print(f"We have logged in as {bot.user}")
-    await bot.change_presence(
-        activity=discord.Activity(type=discord.ActivityType.playing, name=f"{bot.command_prefix}help"))
-    print(discord.__version__)
-
-
-@bot.command("ping", aliases=["p"])
-async def ping(ctx):
-    await ctx.send("Pong!")
-
 
 # /ping to run the command
 @tree.command(name="ping", description="Ping ms")
@@ -388,4 +370,3 @@ async def on_message(msg):
 
 keep_alive()
 client.run(my_secret)
-bot.run(my_secret)
