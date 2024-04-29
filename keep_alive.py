@@ -4,13 +4,11 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return "I'm alive"
+# Your Flask application routes and logic here
 
 def run():
   port = int(os.environ.get('PORT', 8080))  # Use environment variable or default to 8080
-  app.run(host='0.0.0.0', port=port)
+  app.run(host='0.0.0.0', port=port)  # Remove this line (development server)
 
 def keep_alive():
     t = Thread(target=run)
