@@ -346,8 +346,7 @@ async def on_message(msg):
             pokemon = pokemon.replace("?", "")
             pokemon = pokemon.replace("**", "")
             if pokemon in money_raid_counters:
-                await msg.channel.send(
-                    f"<@&947257610602692712>  {pokemon} Potential money raid! Try: {money_raid_counters[pokemon]}")
+                await msg.channel.send(f"<@&947257610602692712>  {pokemon} Potential money raid! Try: {money_raid_counters[pokemon]}")
             elif pokemon in cool_raid or pokemon.__contains__("Arceus"):
                 await msg.channel.send(f"<@&876637017633587251> {pokemon} get pinged")
             else:
@@ -360,15 +359,6 @@ async def on_message(msg):
                 await msg.channel.send(f"<@&921768908132847707> {pokemon} get pinged")
         else:
             pass
-
-    elif msg.channel.id == 799655169008467968:
-        embed = msg.embeds[0]
-        if "Next raid" in embed.description:
-            something, other = embed.description.split("raid")
-            await msg.channel.send(f"<@&625783594966843403> {something} get pinged")
-    else:
-        pass
-
 
 keep_alive()
 client.run(my_secret)
