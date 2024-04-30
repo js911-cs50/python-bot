@@ -360,6 +360,12 @@ async def on_message(msg):
                 await msg.channel.send(f"<@&921768908132847707> {pokemon} get pinged")
         else:
             pass
+
+    elif msg.channel.id == 799655169008467968 and msg.author != client.user:
+        embed = msg.embeds[0]
+        if "Next raid" in embed.description:
+            something, other = embed.description.split("raid")
+            await msg.channel.send(f"<@&625783594966843403> {something} get pinged")
     else:
         pass
 
