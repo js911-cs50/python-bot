@@ -361,7 +361,7 @@ async def on_message(msg):
         else:
             pass
 
-    elif msg.channel.id == 799655169008467968 and msg.author != client.user:
+    elif msg.channel.id == 799655169008467968:
         embed = msg.embeds[0]
         if "Next raid" in embed.description:
             something, other = embed.description.split("raid")
