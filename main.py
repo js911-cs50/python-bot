@@ -346,6 +346,7 @@ async def on_message(msg):
             if "New raid" in embed.description:
                 # Extract pokemon name
                 _, pokemon = embed.description.split("defeat ")
+                pokemon = pokemon.replace("?", "")
                 pokemon = pokemon.strip().replace("**", "")
 
                 # Check for money raid and ping if applicable
