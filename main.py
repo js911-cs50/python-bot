@@ -338,7 +338,7 @@ async def remind(interaction: discord.Interaction, user: discord.User, time: str
 
 @discord.ui.button(label="test", style=discord.ButtonStyle.grey)
 @tree.command(name="guess", description="Guess the correct button for money")
-async def guess(interaction: discord.Interaction, button: discord.ui.Button):
+async def guess(interaction: discord.Interaction):
     await interaction.response.send_message("Button was clicked")
 
 
