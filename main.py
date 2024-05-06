@@ -336,6 +336,11 @@ async def remind(interaction: discord.Interaction, user: discord.User, time: str
     # Send the reminder
     await interaction.channel.send(f"{user.mention}, reminder for {message}")
 
+@discord.ui.button(label="test", style=discord.ButtonStyle.grey)
+@tree.command(name="guess", description="Guess the correct button for money")
+async def guess(interaction: discord.Interaction, button: discord.ui.Button):
+    await interaction.response.send_message("Button was clicked")
+
 
 @client.event
 async def on_message(msg):
