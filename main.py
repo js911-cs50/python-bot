@@ -65,6 +65,13 @@ client = aclient()
 tree = app_commands.CommandTree(client)
 
 
+class MyButton(discord.ui.Button):
+    def __init__(self):
+        super().__init__(style=discord.ButtonStyle.primary, label='My Button')
+
+    async def callback(self, interaction: discord.Interaction):
+        await interaction.response.send_message('Button was clicked!')
+
 # /ping to run the command
 @tree.command(name="ping", description="Ping ms")
 async def ping(interaction: discord.Interaction):
@@ -336,10 +343,12 @@ async def remind(interaction: discord.Interaction, user: discord.User, time: str
     # Send the reminder
     await interaction.channel.send(f"{user.mention}, reminder for {message}")
 
-@discord.ui.button(label='My Button', style=discord.ButtonStyle.primary)
-async def my_button_click(self, button: discord.ui.Button, interaction: discord.Interaction):
-    await interaction.response.send_message('Button was clicked!')
 
+@tree.command(name="guess", description="Guess button for money")
+async def guess(interaction: discord.Interaction):
+    view = discord.ui.View()
+    view.add_item(MyButton())
+    await interaction.response.send_message('Guess the correct button for money', view=view)
 
 
 @client.event
