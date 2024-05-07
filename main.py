@@ -353,16 +353,16 @@ async def guess(interaction: discord.Interaction):
 
 @client.event
 async def on_message(msg):
-    if msg.channel.id == 872641775032991794 and msg.author != client.user:
+    if msg.channel.id == 799655169008467968 and msg.author != client.user:
         embed = msg.embeds[0]
         if "New raid" in embed.description:
             _, pokemon = embed.description.split("defeat ")
             pokemon = pokemon.replace("?", "")
             pokemon = pokemon.replace("**", "")
             if pokemon in money_raid_counters:
-                await msg.channel.send(f"<@&947257610602692712>  {pokemon} Potential money raid! Try: {money_raid_counters[pokemon]}")
+                await msg.channel.send(f"<@&625783594966843403>  {pokemon} Potential money raid! Try: {money_raid_counters[pokemon]}")
             elif pokemon in cool_raid or pokemon.__contains__("Arceus"):
-                await msg.channel.send(f"<@&876637017633587251> {pokemon} get pinged")
+                await msg.channel.send(f"<@&625783594966843403> {pokemon} get pinged")
             else:
                 await msg.channel.send(f"{pokemon} not added")
         elif "New Mega Raid" in embed.description:
@@ -370,7 +370,7 @@ async def on_message(msg):
             pokemon = pokemon.replace("?", "")
             pokemon = pokemon.replace("**", "")
             if pokemon in mega_raid:
-                await msg.channel.send(f"<@&921768908132847707> {pokemon} get pinged")
+                await msg.channel.send(f"<@&625783594966843403> {pokemon} get pinged")
         else:
             pass
 keep_alive()
