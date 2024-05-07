@@ -375,6 +375,5 @@ async def on_message(msg):
                 await msg.channel.send(f"<@&921768908132847707> {pokemon} get pinged")
         else:
             pass
-        time.sleep(840)
 keep_alive()
 client.run(my_secret)
