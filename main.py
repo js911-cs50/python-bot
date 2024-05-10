@@ -72,6 +72,7 @@ class MyButton(discord.ui.Button):
     async def callback(self, interaction: discord.Interaction):
         await interaction.response.send_message('Button was clicked!')
 
+
 # /ping to run the command
 @tree.command(name="ping", description="Ping ms")
 async def ping(interaction: discord.Interaction):
@@ -323,7 +324,6 @@ async def withdraw(interaction: discord.Interaction, amount: int):
         await interaction.response.send_message(f"{user.name} does not have an account set up")
 
 
-
 @tree.command(name="remind", description="Reminds a user to do something")
 async def remind(interaction: discord.Interaction, user: discord.User, time: str, *, message: str):
     # Parse the time string into a datetime object
@@ -360,7 +360,8 @@ async def on_message(msg):
             pokemon = pokemon.replace("?", "")
             pokemon = pokemon.replace("**", "")
             if pokemon in money_raid_counters:
-                await msg.channel.send(f"<@&625783594966843403>  {pokemon} Potential money raid! Try: {money_raid_counters[pokemon]}")
+                await msg.channel.send(
+                    f"<@&625783594966843403>  {pokemon} Potential money raid! Try: {money_raid_counters[pokemon]}")
             elif pokemon in cool_raid or pokemon.__contains__("Arceus"):
                 await msg.channel.send(f"<@&625783594966843403> {pokemon} get pinged")
             else:
@@ -373,5 +374,7 @@ async def on_message(msg):
                 await msg.channel.send(f"<@&625783594966843403> {pokemon} get pinged")
         else:
             pass
+
+
 keep_alive()
 client.run(my_secret)
