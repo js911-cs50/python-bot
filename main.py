@@ -327,24 +327,24 @@ async def withdraw(interaction: discord.Interaction, amount: int):
         await interaction.response.send_message(f"{user.name} does not have an account set up")
 
 
-@tree.command(name="remind", description="Reminds a user to do something")
-async def remind(interaction: discord.Interaction, user: discord.User, time: str, *, message: str):
-    # Parse the time string into a datetime object
-    # This assumes that the time string is in the format "HH:MM:SS"
-    hours, minutes, seconds = map(int, time.split(':'))
-    now = datetime.now()
-    reminder_time = now + timedelta(hours=hours, minutes=minutes, seconds=seconds)
-
-    # Calculate the delay in seconds
-    delay = (reminder_time - now).total_seconds()
-    await interaction.response.send_message(
-        f"Reminder set for {user.name} in {hours}h, {minutes}mins, {seconds}s for {message}")
-
-    # Wait for the specified amount of time
-    await asyncio.sleep(delay)
-
-    # Send the reminder
-    await interaction.channel.send(f"{user.mention}, reminder for {message}")
+# @tree.command(name="remind", description="Reminds a user to do something")
+# async def remind(interaction: discord.Interaction, user: discord.User, time: str, *, message: str):
+#     # Parse the time string into a datetime object
+#     # This assumes that the time string is in the format "HH:MM:SS"
+#     hours, minutes, seconds = map(int, time.split(':'))
+#     now = datetime.now()
+#     reminder_time = now + timedelta(hours=hours, minutes=minutes, seconds=seconds)
+#
+#     # Calculate the delay in seconds
+#     delay = (reminder_time - now).total_seconds()
+#     await interaction.response.send_message(
+#         f"Reminder set for {user.name} in {hours}h, {minutes}mins, {seconds}s for {message}")
+#
+#     # Wait for the specified amount of time
+#     await asyncio.sleep(delay)
+#
+#     # Send the reminder
+#     await interaction.channel.send(f"{user.mention}, reminder for {message}")
 
 
 @tree.command(name="guess", description="Guess button for money")
